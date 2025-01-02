@@ -59,7 +59,7 @@ But also in `lem-site-init.lisp` you will need:
 
 See `src/vi-mode.lisp` for more.
 
-## Paredit/Yndefining Keys
+## Paredit/Undefining Keys
 When enabling paredit, it can interfere with vim keys (eg. [, {, etc.) For now the solution to undefine the paredit key like so (you can also re-enable in insert-mode):
 ```common-lisp
 (undefine-key *paredit-mode-keymap* "[")
