@@ -35,6 +35,8 @@
 (lem:define-command big-prev-line () () (lem-vi-mode/commands:vi-previous-line 10))
 (lem:define-key *normal-keymap* "K" 'big-prev-line)
 
+(lem:define-key *normal-keymap* "Q" 'lem-vi-mode/commands:vi-execute-macro)
+
 ;; This is default, but a good example of setting an editor-variable
 (setf (variable-value 'lem-vi-mode/text-objects:vi-operator-surrounding-blanks :global) nil)
 
@@ -46,3 +48,9 @@
 ;; For Dev
 (define-command load-vi-tests () ()
   (ql:quickload :lem-vi-mode/tests))
+
+;; TODO
+; Smart dd
+; Expand/Reduce split
+
+

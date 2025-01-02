@@ -33,3 +33,31 @@ This is just a basic file which call the function to load the above system
   (lem-core::load-site-init)
 ```
 
+# Loading Contrib Packages (trailing-spaces, tetris, etc.)
+Using trailing-spaces as an example, you will want this in your config:
+```common-lisp
+(lem:add-hook lem:*find-file-hook*
+              (lambda (buffer)
+                (change-buffer-mode buffer 'lem-trailing-spaces::trailing-spaces t)))
+```
+
+But also in `lem-site-init.lisp` you will need:
+```common-lisp
+(asdf/parse-defsystem:defsystem "lem-site-init"
+  :depends-on ("lem-trailing-spaces")
+  :components ((:module "src" ...)))
+```
+
+# vi-mode
+
+See `src/vi-mode.lisp` for more.
+
+## Paredit
+When enabling paredit, it can interfere with vim keys (eg. [, {, etcl). For now the solution to undefine the paredit key like so (you can also re-enable in insert-mode):
+```common-lisp
+(undefine-key *paredit-mode-keymap* "[")
+(define-key lem-vi-mode:*insert-keymap* "[" 'paredit-insert-bracket)
+
+(undefine-key *paredit-mode-keymap* "{")
+(define-key lem-vi-mode:*insert-keymap* "{" 'paredit-insert-brace)
+```

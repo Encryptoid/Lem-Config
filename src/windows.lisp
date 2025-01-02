@@ -4,3 +4,5 @@
                             " "
                             "/home/l/code/python/winman.py Lem 2") :output :string)))
   (lem:message "Captured: ~a~%" output))
+
+(lem-core/commands/frame::maximize-frame)

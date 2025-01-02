@@ -41,7 +41,7 @@
 ;; QuickProject
 ; Allows you to make a project with asd and main file quickly.
 ; Example: (quickproject:make-project "<path-to-project>/<project-name>")
-(ql:quickload :quickproject)
+;(ql:quickload :quickproject)
 
 ;(asdf:load-asd (probe-file "/home/l/code/lisp/vi-collection/vi-collection.asd"))
 ;(ql:quickload :vi-collection)

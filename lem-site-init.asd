@@ -1,7 +1,7 @@
 (in-package #:cl-user)
 
 (asdf/parse-defsystem:defsystem "lem-site-init"
-  :depends-on ()
+  :depends-on ("lem-trailing-spaces")
   :components ((:module "src"
                 :components (
                              (:file "defs")
