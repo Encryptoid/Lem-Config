@@ -33,6 +33,13 @@ This is just a basic file which call the function to load the above system
   (lem-core::load-site-init)
 ```
 
+# Changing editor-variables
+The syntax to change editor variables is as follows. A macro will pick it up:
+
+```common-lisp
+(setf (variable-value 'lem-vi-mode/text-objects:vi-operator-surrounding-blanks :global) nil)
+```
+
 # Loading Contrib Packages (trailing-spaces, tetris, etc.)
 Using trailing-spaces as an example, you will want this in your config:
 ```common-lisp
