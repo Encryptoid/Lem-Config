@@ -1,5 +1,5 @@
 (in-package :lem-paredit-mode)
-(add-hook lem-lisp-mode:*lisp-mode-hook* 'paredit-mode)
+;(add-hook lem-lisp-mode:*lisp-mode-hook* 'paredit-mode)
 
 ;; I don't know what keys are useful, would not recommend copying.
 (define-keys *paredit-mode-keymap*
@@ -39,7 +39,6 @@
 (lem:add-hook lem:*find-file-hook*
               (lambda (buffer)
                 (change-buffer-mode buffer 'lem-trailing-spaces::trailing-spaces t)))
-
 
 ;; Test Area
 

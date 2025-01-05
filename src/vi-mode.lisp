@@ -5,8 +5,14 @@
 (lem:define-key *normal-keymap* "Space f f" 'lem/grep:grep)
 (lem:define-key *normal-keymap* "Space f j" 'lem/grep:grep)
 
+(lem:define-command find-file-current-buf () ()
+  (find-file (lem/buffer/internal::buffer-%directory (current-buffer))))
+
+(lem:define-key *normal-keymap* "Space e f" 'lem-vi-mode::find-file-current-buf)
+
 (lem:define-command save-all-buffers () ()
   (lem:save-some-buffers t)
+  (lem-core/commands/edit:delete-trailing-whitespace)
   (lem:message "Saved"))
 (lem:define-key *normal-keymap* "Space Space" 'save-all-buffers)
 
@@ -16,6 +22,8 @@
   (lem/language-mode:find-definitions)
   (lem-vi-mode/commands:vi-scroll-line-to-center))
 (lem:define-key *normal-keymap* "g d" 'go-to-def-center)
+
+(lem:define-key *normal-keymap* "g t" 'LEM-LISP-MODE/INTERNAL:LISP-DESCRIBE-SYMBOL)
 
 (lem:define-key *normal-keymap* "Space f d" 'lem-core/commands/file:find-file-recursively)
 
@@ -42,8 +50,9 @@
 
 ;; Relative line numbers
 (lem/line-numbers::line-numbers-mode)
-(setf (lem:variable-value 'lem/line-numbers:line-number-format :global) " ~2D ")
+;(setf (lem:variable-value 'lem/line-numbers:line-number-format :global) " ~2D ")
 (setf lem/line-numbers:*relative-line* t)
+;(setf lem/line-numbers::*zero-index-line* nil)
 
 ;; For Dev
 (define-command load-vi-tests () ()
@@ -52,5 +61,3 @@
 ;; TODO
 ; Smart dd
 ; Expand/Reduce split
-
-

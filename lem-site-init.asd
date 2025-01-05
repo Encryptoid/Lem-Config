@@ -4,7 +4,6 @@
   :depends-on ("lem-trailing-spaces")
   :components ((:module "src"
                 :components (
-                             (:file "defs")
                              (:file "windows")
                              (:file "lem")
                              (:file "vi-mode")
@@ -12,4 +11,5 @@
                              (:file "minibuffer")
                              (:file "multiplexer")
                              (:file "project")
+                             (:file "last")
                              ))))
